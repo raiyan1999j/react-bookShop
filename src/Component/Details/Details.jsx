@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Details() {
   const {
@@ -16,89 +18,122 @@ export default function Details() {
     yearOfPublishing,
   } = useLoaderData();
 
-  
-  
-  
-  
+  const addToRead = () => {
+    let wrap = {
+      bookId,
+      author,
+      bookName,
+      category,
+      image,
+      publisher,
+      rating,
+      review,
+      tags,
+      totalPages,
+      yearOfPublishing,
+    };
 
-  const addToRead=()=>{
-    let wrap = {bookId,author,bookName,category,image,publisher,rating,review,tags,totalPages,yearOfPublishing};
+    let readList = localStorage.getItem("readList");
+    let wishList = localStorage.getItem("wishList");
 
-    let readList = localStorage.getItem('readList');
-    let wishList = localStorage.getItem('wishList');
+    if (!readList) {
+      localStorage.setItem("readList", JSON.stringify([wrap]));
 
-    if(!readList){
-      localStorage.setItem('readList',JSON.stringify([wrap]));
-
-      if(wishList){
-        if(JSON.parse(wishList).find(value=>value.bookId == bookId)){
+      if (wishList) {
+        if (JSON.parse(wishList).find((value) => value.bookId == bookId)) {
           let copy = JSON.parse(wishList);
-          let newData = copy.filter(value=>value.bookId != bookId);
+          let newData = copy.filter((value) => value.bookId != bookId);
 
-          localStorage.setItem('wishList',JSON.stringify(newData))
+          localStorage.setItem("wishList", JSON.stringify(newData));
         }
       }
-    }else{
-      if(!JSON.parse(readList).find(value=>value.bookId == bookId)){
-          let newData = JSON.parse(readList);
+    } else {
+      if (!JSON.parse(readList).find((value) => value.bookId == bookId)) {
+        let newData = JSON.parse(readList);
 
-          newData.push(wrap);
+        newData.push(wrap);
 
-          localStorage.setItem('readList',JSON.stringify(newData))
+        localStorage.setItem("readList", JSON.stringify(newData));
 
-          if(wishList){
-            if(JSON.parse(wishList).find(value=>value.bookId == bookId)){
-              let copy = JSON.parse(wishList);
-              let newData = copy.filter(value=>value.bookId != bookId);
-    
-              localStorage.setItem('wishList',JSON.stringify(newData))
-            }
+        if (wishList) {
+          if (JSON.parse(wishList).find((value) => value.bookId == bookId)) {
+            let copy = JSON.parse(wishList);
+            let newData = copy.filter((value) => value.bookId != bookId);
+
+            localStorage.setItem("wishList", JSON.stringify(newData));
           }
-      }else{
-        console.log('already added to list')
+        }
+      } else {
+        toast("Already read");
       }
     }
-  }
+  };
 
-  const addToWish=()=>{
-    let wrap = {bookId,author,bookName,category,image,publisher,rating,review,tags,totalPages,yearOfPublishing};
+  const addToWish = () => {
+    let wrap = {
+      bookId,
+      author,
+      bookName,
+      category,
+      image,
+      publisher,
+      rating,
+      review,
+      tags,
+      totalPages,
+      yearOfPublishing,
+    };
 
-    let readList = localStorage.getItem('readList');
-    let wishList = localStorage.getItem('wishList');
+    let readList = localStorage.getItem("readList");
+    let wishList = localStorage.getItem("wishList");
 
-    if(readList){
-      if(JSON.parse(readList).find(value=>value.bookId == bookId)){
-        console.log('already added to readList')
-      }else{
-        if(!wishList){
-          localStorage.setItem('wishList',JSON.stringify([wrap]))
-        }else{
+    if (readList) {
+      if (JSON.parse(readList).find((value) => value.bookId == bookId)) {
+        toast("Book already read");
+      } else {
+        if (!wishList) {
+          localStorage.setItem("wishList", JSON.stringify([wrap]));
+        } else {
           let newData = JSON.parse(wishList);
 
           newData.push(wrap);
 
-          localStorage.setItem('wishList',JSON.stringify(newData))
+          localStorage.setItem("wishList", JSON.stringify(newData));
         }
       }
-    }else{
-      if(!wishList){
-        localStorage.setItem('wishList',JSON.stringify([wrap]));
-      }else{
-        if(!JSON.parse(wishList).find(value=>value.bookId == bookId)){
+    } else {
+      if (!wishList) {
+        localStorage.setItem("wishList", JSON.stringify([wrap]));
+      } else {
+        if (!JSON.parse(wishList).find((value) => value.bookId == bookId)) {
           let newData = JSON.parse(wishList);
-          
+
           newData.push(wrap);
 
-          localStorage.setItem('wishList',JSON.stringify(newData))
-        }else{
-          console.log('already added to wishList')
+          localStorage.setItem("wishList", JSON.stringify(newData));
+        } else {
+          console.log("already added to wishList");
+          toast("Book already added to wishList");
         }
       }
     }
-  }
+  };
   return (
     <>
       <section className="w-[1170px] mx-auto mt-[52px]">
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Bounce
+        />
         <div className="w-full grid grid-cols-2 gap-x-12">
           <div className="h-[711px] w-[573px] bg-[#1313130d] rounded-xl flex justify-center items-center">
             <div className="h-[564px] w-[425px]">
@@ -183,10 +218,18 @@ export default function Details() {
               </table>
             </div>
             <div className="flex flex-row mt-8">
-              <button className="capitalize text-lg font-workSans text-[#131313] font-semibold py-[18px] px-7 rounded-xl border border-[#1313134d] mr-4" onClick={addToRead}>
+              <button
+                className="capitalize text-lg font-workSans text-[#131313] font-semibold py-[18px] px-7 rounded-xl border border-[#1313134d] mr-4"
+                onClick={addToRead}
+              >
                 Read
               </button>
-              <button className="capitalize text-lg font-workSans text-white font-semibold py-[18px] px-7 rounded-xl bg-[#50B1C9]" onClick={addToWish}>wishlist</button>
+              <button
+                className="capitalize text-lg font-workSans text-white font-semibold py-[18px] px-7 rounded-xl bg-[#50B1C9]"
+                onClick={addToWish}
+              >
+                wishlist
+              </button>
             </div>
           </div>
         </div>
