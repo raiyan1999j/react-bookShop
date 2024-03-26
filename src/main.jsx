@@ -20,7 +20,15 @@ const router = createBrowserRouter([
       },
       {
         path:'/bookList',
-        element:<BookList/>
+        element:<BookList/>,
+        loader: ()=>{
+          let wrap ={
+            readList: localStorage.getItem('readList'),
+            wishList: localStorage.getItem('wishList')
+          }
+
+          return wrap;
+        }
       },
       {
         path:'/details/:bookId',

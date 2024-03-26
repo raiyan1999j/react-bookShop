@@ -3,8 +3,16 @@ import { faAngleDown, faFile, faLocationDot, faUsers } from "@fortawesome/free-s
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import './Tab.css';
+import { useLoaderData } from "react-router-dom";
+import ReadList from "./ReadList";
+import WishList from "./WishList";
 
 export default function BookList() {
+  const {readList,wishList} = useLoaderData();
+  
+  const readBook = JSON.parse(readList);
+  const wishBook = JSON.parse(wishList);
+
   return (
     <>
       <section className="w-[1170px] mx-auto mt-[50px]">
@@ -45,67 +53,21 @@ export default function BookList() {
           </TabList>
 
           <TabPanel>
-            <div className="flex flex-row">
-                <div className="h-[229px] w-[230px] rounded-xl bg-[#1313130d] flex justify-center items-center">
-                    <div className="h-[172px] w-[129px] py-7">
-                        <img src="https://i.postimg.cc/MHBFpN4B/banner-Image.png" alt="bookImage" className="h-full w-full object-contain" />
-                    </div>
-                </div>
-                <div className="w-[867px] ml-6">
-                    <h2 className="capitalize text-[#131313] font-playFair text-2xl font-bold">
-                        the catcher in the rye
-                    </h2>
-                    <p className="text-[#131313cc] capitalize text-base font-medium font-workSans my-4">
-                        by : awlad hossain
-                    </p>
-                    <div className="flex flex-row capitalize">
-                        <div>
-                            <h5 className="text-[#131313] font-workSans text-base font-bold">tag</h5>
-                        </div>
-                        <div className="mx-4 text-[#23BE0A] font-workSans text-base font-medium flex flex-row">
-                            <h5 className="mr-3">#young adult</h5>
-                            <h5>#identity</h5>
-                        </div>
-                        <div className="text-[#131313cc] text-base font-normal capitalize font-workSans">
-                        <FontAwesomeIcon icon={faLocationDot} className="mr-2"/>
-                            year of publishing: 1924
-                        </div>
-                    </div>
-                    <div className="flex flex-row text-[#13131399] capitalize text-base font-normal font-workSans my-4">
-                    <div className="mr-4">
-                        <p>
-                        <FontAwesomeIcon icon={faUsers} className="mr-3"/>
-                            publisher: scribner
-                        </p>
-                    </div>
-                    <div>
-                        <p>
-                        <FontAwesomeIcon icon={faFile} className="mr-3"/>
-                            page 192
-                        </p>
-                    </div>
-                </div>
-                <div className="flex flex-row ">
-                    <div className="bg-[#328eff26] rounded-full px-5 py-[11px]">
-                        <h4 className="text-[#328EFF] text-base font-normal capitalize font-workSans">
-                            category: classic
-                        </h4>
-                    </div>
-                    <div className="bg-[#ffac3326] rounded-full px-5 py-[11px] mx-3">
-                        <h4 className="text-[#FFAC33] text-base font-normal capitalize font-workSans">
-                            rating: 4.5
-                        </h4>
-                    </div>
-                        <button className="bg-[#23BE0A] rounded-full px-5 py-[11px] text-white capitalize">
-                            view details
-                        </button>
-                </div>
-                </div>
-                
-            </div>
+            {
+              readBook?.map((value,id)=>{
+                return <ReadList
+                  key={id}
+                  info={value}
+                />
+              })
+            }
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+            {
+              wishBook?.map((value,id)=>{
+                return <WishList key={id} info={value}/>
+              })
+            }
           </TabPanel>
         </Tabs>
       </section>
