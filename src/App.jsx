@@ -1,6 +1,4 @@
 import { NavLink, Outlet } from "react-router-dom";
-import './App.css';
-import Home from "./Component/Home/Home";
 
 export default function App() {
   return (
@@ -56,12 +54,16 @@ export default function App() {
               <a className="btn btn-ghost font-workSans font-bold text-[28px]">BookStore</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1 text-[#131313cc] font-workSans text-lg font-normal capitalize">
+              <ul className="menu menu-horizontal px-1  font-workSans text-lg font-normal capitalize">
                 <li>
-                  <NavLink to='/'>Home</NavLink>
+                  <NavLink to='/' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/bookList'>Listed books</NavLink>
+                  <NavLink to='/bookList' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>Listed books</NavLink>
                 </li>
                 <li>
                   <NavLink to='/pageRead'>page to read</NavLink>

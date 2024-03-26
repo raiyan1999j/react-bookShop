@@ -1,0 +1,9 @@
+.react-tabs__tab:focus{
+    color:#131313cc;
+}
+.react-tabs__tab--selected,.react-tabs__tab{
+    text-transform: capitalize;
+    font-size:18px;
+    color:#13131380;
+    font-family: "Work Sans", sans-serif;
+}
