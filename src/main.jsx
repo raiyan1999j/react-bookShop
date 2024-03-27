@@ -7,6 +7,7 @@ import BookList from './Component/ListedBooks/BookList.jsx';
 import Home from './Component/Home/Home.jsx';
 import Details from './Component/Details/Details.jsx';
 import PagesRead from './Component/PagesToRead/PagesRead.jsx';
+import Comments from './Component/Comments/Comments.jsx';
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,13 @@ const router = createBrowserRouter([
       {
         path:'/pageRead',
         element:<PagesRead/>,
+        loader: ()=>{
+          return localStorage.getItem('readList');
+        }
+      },
+      {
+        path:'/comments',
+        element:<Comments/>,
         loader: ()=>{
           return localStorage.getItem('readList');
         }

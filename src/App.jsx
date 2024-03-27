@@ -71,10 +71,14 @@ export default function App() {
                   }}>page to read</NavLink>
                 </li>
                 <li>
-                  <a>item</a>
+                <NavLink to='/comments' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>Comments</NavLink>
                 </li>
                 <li>
-                  <a>item</a>
+                <NavLink to='/contact' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>Contact Us</NavLink>
                 </li>
               </ul>
             </div>
