@@ -6,12 +6,18 @@ import './Tab.css';
 import { useLoaderData } from "react-router-dom";
 import ReadList from "./ReadList";
 import WishList from "./WishList";
+import { useState } from "react";
 
 export default function BookList() {
   const {readList,wishList} = useLoaderData();
+  const [order,setOrder] = useState('');
   
   const readBook = JSON.parse(readList);
   const wishBook = JSON.parse(wishList);
+
+  const sortList=(value)=>{
+    setOrder(value);
+  }
 
   return (
     <>
@@ -34,11 +40,14 @@ export default function BookList() {
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
+              <li onClick={()=>{sortList('rating')}}>
+                <span>Rating</span>
               </li>
-              <li>
-                <a>Item 2</a>
+              <li onClick={()=>{sortList('totalPages')}}>
+                <span>Number of Pages</span>
+              </li>
+              <li onClick={()=>{sortList('yearOfPublishing')}}>
+                <span>Published Year</span>
               </li>
             </ul>
           </div>
@@ -48,23 +57,20 @@ export default function BookList() {
       <section className="w-[1170px] mx-auto mt-[56px]">
         <Tabs>
           <TabList>
-            <Tab>read books</Tab>
-            <Tab>wishlist books</Tab>
+            <Tab onClick={()=>{setCondition('readBook')}}>read books</Tab>
+            <Tab onClick={()=>{setCondition('wishBook')}}>wishlist books</Tab>
           </TabList>
 
           <TabPanel>
             {
-              readBook?.map((value,id)=>{
-                return <ReadList
-                  key={id}
-                  info={value}
-                />
+              readBook.sort((a,b)=>b[`${order}`] - a[`${order}`])?.map((value,id)=>{
+                return <ReadList key={id} info={value}/>
               })
             }
           </TabPanel>
           <TabPanel>
             {
-              wishBook?.map((value,id)=>{
+              wishBook.sort((a,b)=>b[`${order}`] - a[`${order}`])?.map((value,id)=>{
                 return <WishList key={id} info={value}/>
               })
             }

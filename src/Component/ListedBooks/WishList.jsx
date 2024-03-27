@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faFile, faLocationDot, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function WishList({info}){
     const {bookId,
@@ -13,6 +14,12 @@ export default function WishList({info}){
         tags,
         totalPages,
         yearOfPublishing,} = info
+
+    const navigate = useNavigate();
+
+    const detailsPage=()=>{
+        navigate(`/details/${bookId}`)
+    }
     return(
         <>
         <div className="flex flex-row border rounded-xl mt-[25px]">
@@ -67,7 +74,7 @@ export default function WishList({info}){
                             rating: {rating}
                         </h4>
                     </div>
-                        <button className="bg-[#23BE0A] rounded-full px-5 py-[11px] text-white capitalize">
+                        <button className="bg-[#23BE0A] rounded-full px-5 py-[11px] text-white capitalize" onClick={detailsPage}>
                             view details
                         </button>
                 </div>
