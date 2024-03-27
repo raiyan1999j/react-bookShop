@@ -22,13 +22,13 @@ export default function ReadList({info}){
     }
     return(
         <>
-        <div className="flex flex-row border rounded-xl mt-[25px] small:flex-col small:items-center small:py-6">
-                <div className="h-[229px] w-[230px] rounded-xl bg-[#1313130d] flex justify-center items-center small:mb-6">
+        <div className="flex flex-row border rounded-xl mt-[25px] small:flex-col small:items-center small:py-6 medium:flex-col medium:items-center medium:flex medium:py-6">
+                <div className="h-[229px] w-[230px] rounded-xl bg-[#1313130d] flex justify-center items-center small:mb-6 medium:mb-6">
                     <div className="h-[172px] w-[129px] py-7">
                         <img src={image} alt={bookName} className="h-full w-full object-contain" />
                     </div>
                 </div>
-                <div className="w-[867px] ml-6 small:w-full small:ml-0 small:px-6">
+                <div className="w-[867px] ml-6 small:w-full small:ml-0 small:px-6 medium:w-full medium:ml-0 medium:px-6">
                     <h2 className="capitalize text-[#131313] font-playFair text-2xl font-bold small:text-xl">
                         {bookName}
                     </h2>

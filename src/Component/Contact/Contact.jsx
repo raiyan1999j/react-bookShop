@@ -16,7 +16,7 @@ export default function Contact(){
       };
     return(
         <>
-            <section className="w-[1170px] mx-auto rounded-xl small:w-[468px]">
+            <section className="w-[1170px] mx-auto rounded-xl small:w-[468px] medium:w-[624px]">
             <div className='h-screen w-full rounded-xl'>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}

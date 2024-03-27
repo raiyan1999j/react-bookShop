@@ -21,7 +21,7 @@ export default function BookList() {
 
   return (
     <>
-      <section className="w-[1170px] mx-auto mt-[50px] small:w-[468px]">
+      <section className="w-[1170px] mx-auto mt-[50px] small:w-[468px] medium:w-[624px]">
         <div className="bg-[#1313130d] rounded-lg py-[33px] text-center">
           <h2 className="text-[#131313] font-workSans font-bold capitalize text-[28px]">
             Books
@@ -54,7 +54,7 @@ export default function BookList() {
         </div>
       </section>
 
-      <section className="w-[1170px] mx-auto mt-[56px] small:w-[468px]">
+      <section className="w-[1170px] mx-auto mt-[56px] small:w-[468px] medium:w-[624px]">
         <Tabs>
           <TabList>
             <Tab>read books</Tab>

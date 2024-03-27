@@ -4,8 +4,8 @@ export default function App() {
   return (
     <>
       <div className="max-w-[1440px] mx-auto">
-        <section className="w-[1170px] mx-auto small:w-[468px]">
-          <div className="navbar bg-base-100 small:flex small:justify-center">
+        <section className="w-[1170px] mx-auto small:w-[468px] medium:w-[624px]">
+          <div className="navbar bg-base-100 small:flex small:justify-center medium:justify-center">
             <div className="navbar-start">
               <div className="dropdown">
                 <div
@@ -94,7 +94,7 @@ export default function App() {
                 </li>
               </ul>
             </div>
-            <div className="navbar-end capitalize font-workSans text-lg font-semibold small:hidden">
+            <div className="navbar-end capitalize font-workSans text-lg font-semibold small:hidden medium:hidden">
               <a className="btn mr-4 py-[18px] px-7 bg-[#23BE0A] text-white">sign in</a>
               <a className="btn py-[18px] px-7 bg-[#59C6D2] text-white">sign up</a>
             </div>

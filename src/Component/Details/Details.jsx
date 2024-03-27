@@ -120,7 +120,7 @@ export default function Details() {
   };
   return (
     <>
-      <section className="w-[1170px] mx-auto mt-[52px] small:w-[468px]">
+      <section className="w-[1170px] mx-auto mt-[52px] small:w-[468px] medium:w-[624px]">
         <ToastContainer
           position="top-right"
           autoClose={2000}
@@ -134,9 +134,9 @@ export default function Details() {
           theme="light"
           transition:Bounce
         />
-        <div className="w-full grid grid-cols-2 gap-x-12 small:grid-cols-1 small:gap-y-12 small:justify-center small:items-center small:flex small:flex-col">
-          <div className="h-[711px] w-[573px] bg-[#1313130d] rounded-xl flex justify-center items-center small:h-[500px] small:w-[400px]">
-            <div className="h-[564px] w-[425px] small:h-[320px]">
+        <div className="w-full grid grid-cols-2 gap-x-12 small:grid-cols-1 small:gap-y-12 small:justify-center small:items-center small:flex small:flex-col medium:flex medium:flex-col medium:items-center medium:justify-center medium:gap-y-12">
+          <div className="h-[711px] w-[573px] bg-[#1313130d] rounded-xl flex justify-center items-center small:h-[500px] small:w-[400px] medium:h-[500px] medium:w-[400px]">
+            <div className="h-[564px] w-[425px] small:h-[320px] medium:h-[320px]">
               <img
                 src={image}
                 alt={bookName}
@@ -217,7 +217,7 @@ export default function Details() {
                 </tbody>
               </table>
             </div>
-            <div className="flex flex-row small:justify-between mt-8">
+            <div className="flex flex-row small:justify-between medium:justify-between mt-8">
               <button
                 className="capitalize text-lg font-workSans text-[#131313] font-semibold py-[18px] px-7 rounded-xl border border-[#1313134d] mr-4"
                 onClick={addToRead}
