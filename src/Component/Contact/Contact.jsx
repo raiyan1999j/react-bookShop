@@ -2,7 +2,7 @@ import { faLocation, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div>
+const AnyReactComponent = ({}) => <div>
     <FontAwesomeIcon icon={faLocationDot} className='text-5xl text-green-500 '/>
 </div>;
 
@@ -16,7 +16,7 @@ export default function Contact(){
       };
     return(
         <>
-            <section className="w-[1170px] mx-auto rounded-xl">
+            <section className="w-[1170px] mx-auto rounded-xl small:w-[468px]">
             <div className='h-screen w-full rounded-xl'>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}

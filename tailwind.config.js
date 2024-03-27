@@ -8,6 +8,10 @@ export default {
     fontFamily:{
       'playFair':['Playfair Display','serif'],
       'workSans':['Work Sans','sans-serif']
+    },
+    screens:{
+      'small':{'min':'0px','max':'576px'},
+      'medium':{'min':'576px','max':'768px'}
     }
   },
   plugins: [require("daisyui")],

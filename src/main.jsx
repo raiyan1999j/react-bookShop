@@ -9,12 +9,14 @@ import Details from './Component/Details/Details.jsx';
 import PagesRead from './Component/PagesToRead/PagesRead.jsx';
 import Comments from './Component/Comments/Comments.jsx';
 import Contact from './Component/Contact/Contact.jsx';
+import Error from './Component/Error/Error.jsx';
 
 
 const router = createBrowserRouter([
   {
     path:'/',
     element:<App/>,
+    errorElement:<Error/>,
     children:[
       {
         path:'/',

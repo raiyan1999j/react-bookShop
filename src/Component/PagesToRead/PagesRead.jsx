@@ -47,7 +47,7 @@ export default function PagesRead() {
   };
   return (
     <>
-    <section className="w-[1170px] mx-auto mt-[52px]">
+    <section className="w-[1170px] mx-auto mt-[52px] small:w-[468px] small:overflow-x-scroll small:scale-[0.6]">
       <BarChart
         width={1170}
         height={522}

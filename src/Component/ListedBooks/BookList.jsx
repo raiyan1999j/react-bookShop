@@ -21,7 +21,7 @@ export default function BookList() {
 
   return (
     <>
-      <section className="w-[1170px] mx-auto mt-[50px]">
+      <section className="w-[1170px] mx-auto mt-[50px] small:w-[468px]">
         <div className="bg-[#1313130d] rounded-lg py-[33px] text-center">
           <h2 className="text-[#131313] font-workSans font-bold capitalize text-[28px]">
             Books
@@ -54,23 +54,23 @@ export default function BookList() {
         </div>
       </section>
 
-      <section className="w-[1170px] mx-auto mt-[56px]">
+      <section className="w-[1170px] mx-auto mt-[56px] small:w-[468px]">
         <Tabs>
           <TabList>
-            <Tab onClick={()=>{setCondition('readBook')}}>read books</Tab>
-            <Tab onClick={()=>{setCondition('wishBook')}}>wishlist books</Tab>
+            <Tab>read books</Tab>
+            <Tab>wishlist books</Tab>
           </TabList>
 
           <TabPanel>
             {
-              readBook.sort((a,b)=>b[`${order}`] - a[`${order}`])?.map((value,id)=>{
+              readBook?.sort((a,b)=>b[`${order}`] - a[`${order}`])?.map((value,id)=>{
                 return <ReadList key={id} info={value}/>
               })
             }
           </TabPanel>
           <TabPanel>
             {
-              wishBook.sort((a,b)=>b[`${order}`] - a[`${order}`])?.map((value,id)=>{
+              wishBook?.sort((a,b)=>b[`${order}`] - a[`${order}`])?.map((value,id)=>{
                 return <WishList key={id} info={value}/>
               })
             }

@@ -4,8 +4,8 @@ export default function App() {
   return (
     <>
       <div className="max-w-[1440px] mx-auto">
-        <section className="w-[1170px] mx-auto">
-          <div className="navbar bg-base-100">
+        <section className="w-[1170px] mx-auto small:w-[468px]">
+          <div className="navbar bg-base-100 small:flex small:justify-center">
             <div className="navbar-start">
               <div className="dropdown">
                 <div
@@ -33,22 +33,34 @@ export default function App() {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <a>Item 1</a>
-                  </li>
-                  <li>
-                    <a>Parent</a>
-                    <ul className="p-2">
-                      <li>
-                        <a>Submenu 1</a>
-                      </li>
-                      <li>
-                        <a>Submenu 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a>Item 3</a>
-                  </li>
+                  <NavLink to='/' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>Home</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/bookList' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>Listed books</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/pageRead' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>page to read</NavLink>
+                </li>
+                <li>
+                <NavLink to='/comments' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>Comments</NavLink>
+                </li>
+                <li>
+                <NavLink to='/contact' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>Contact Us</NavLink>
+                </li>
+                <li className="flex flex-row justify-between">
+                <button className="rounded-xl py-2 px-6 bg-green-600 text-white hover:bg-white hover:text-green-600 hover:border hover:border-green-600 hover:transition-all hover:ease-in hover:duration-300 capitalize">sign in</button>
+                <button className="rounded-xl py-2 px-6 bg-sky-600 text-white hover:bg-white hover:text-sky-600 hover:border hover:border-sky-600 hover:transition-all hover:ease-in hover:duration-300 capitalize">sign up</button>
+                </li>
                 </ul>
               </div>
               <a className="btn btn-ghost font-workSans font-bold text-[28px]">BookStore</a>
@@ -82,13 +94,12 @@ export default function App() {
                 </li>
               </ul>
             </div>
-            <div className="navbar-end capitalize font-workSans text-lg font-semibold">
+            <div className="navbar-end capitalize font-workSans text-lg font-semibold small:hidden">
               <a className="btn mr-4 py-[18px] px-7 bg-[#23BE0A] text-white">sign in</a>
               <a className="btn py-[18px] px-7 bg-[#59C6D2] text-white">sign up</a>
             </div>
           </div>
         </section>
-
         <Outlet/>
       </div>
     </>

@@ -33,9 +33,9 @@ export default function Comments() {
 
   return (
     <>
-      <section className="w-[1170px] mx-auto mt-[52px]">
-        <div className="grid grid-cols-2 gap-x-6">
-          <div className="border border-t-0 border-l-0 border-b-0">
+      <section className="w-[1170px] mx-auto mt-[52px] small:w-[468px]">
+        <div className="grid grid-cols-2 gap-x-6 small:grid-cols-1 small:gap-y-6">
+          <div className="border border-t-0 border-l-0 border-b-0 small:border-r-0 small:border-b small:w-full small:flex small:justify-center small:items-center small:py-4">
             <div className="w-[80%] py-6 px-6 border rounded-xl">
               <label className="input input-bordered flex items-center gap-2">
                 <FontAwesomeIcon icon={faUser} className="w-4 h-4 opacity-70" />
@@ -108,7 +108,7 @@ export default function Comments() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="small:w-full small:flex small:justify-center small:items-center small:flex-col">
             {
                 collection.map((value,id)=>{
                     return <CommentCard key={id} info={value}/>
