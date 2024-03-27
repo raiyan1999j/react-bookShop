@@ -8,6 +8,7 @@ import Home from './Component/Home/Home.jsx';
 import Details from './Component/Details/Details.jsx';
 import PagesRead from './Component/PagesToRead/PagesRead.jsx';
 import Comments from './Component/Comments/Comments.jsx';
+import Contact from './Component/Contact/Contact.jsx';
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         loader: ()=>{
           return localStorage.getItem('readList');
         }
+      },
+      {
+        path:'/contact',
+        element:<Contact/>
       }
     ]
   }
