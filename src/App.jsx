@@ -11,7 +11,7 @@ export default function App() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost lg:hidden"
+                  className="btn btn-ghost hidden small:block medium:block small:translate-y-[15px] medium:translate-y-[15px]"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ export default function App() {
               </div>
               <a className="btn btn-ghost font-workSans font-bold text-[28px]">BookStore</a>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center small:hidden medium:hidden">
               <ul className="menu menu-horizontal px-1  font-workSans text-lg font-normal capitalize">
                 <li>
                   <NavLink to='/' className={({isActive,isPending})=>{
