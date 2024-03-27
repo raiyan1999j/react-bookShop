@@ -66,7 +66,9 @@ export default function App() {
                   }}>Listed books</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/pageRead'>page to read</NavLink>
+                  <NavLink to='/pageRead' className={({isActive,isPending})=>{
+                    return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
+                  }}>page to read</NavLink>
                 </li>
                 <li>
                   <a>item</a>

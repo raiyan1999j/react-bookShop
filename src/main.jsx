@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import BookList from './Component/ListedBooks/BookList.jsx';
 import Home from './Component/Home/Home.jsx';
 import Details from './Component/Details/Details.jsx';
+import PagesRead from './Component/PagesToRead/PagesRead.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,13 @@ const router = createBrowserRouter([
           let mainData = data.find((value)=>{return value.bookId == params.bookId});
 
           return mainData;
+        }
+      },
+      {
+        path:'/pageRead',
+        element:<PagesRead/>,
+        loader: ()=>{
+          return localStorage.getItem('readList');
         }
       }
     ]
