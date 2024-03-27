@@ -1,6 +1,12 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 export default function App() {
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    navigate('/home')
+  },[])
   return (
     <>
       <div className="max-w-[1440px] mx-auto">
@@ -33,7 +39,7 @@ export default function App() {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                  <NavLink to='/' className={({isActive,isPending})=>{
+                  <NavLink to='/home' className={({isActive,isPending})=>{
                     return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
                   }}>Home</NavLink>
                 </li>
@@ -68,7 +74,7 @@ export default function App() {
             <div className="navbar-center small:hidden medium:hidden">
               <ul className="menu menu-horizontal px-1  font-workSans text-lg font-normal capitalize">
                 <li>
-                  <NavLink to='/' className={({isActive,isPending})=>{
+                  <NavLink to='/home' className={({isActive,isPending})=>{
                     return isActive?'bg-white border border-[#23BE0A] text-[#23BE0A]':'text-[#131313cc]'
                   }}>Home</NavLink>
                 </li>

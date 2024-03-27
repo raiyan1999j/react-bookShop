@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom';
 import BookList from './Component/ListedBooks/BookList.jsx';
 import Home from './Component/Home/Home.jsx';
 import Details from './Component/Details/Details.jsx';
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     errorElement:<Error/>,
     children:[
       {
-        path:'/',
+        path:'/home',
         element:<Home/>,
         loader:()=>fetch('../public/File.json')
       },
@@ -67,6 +67,7 @@ const router = createBrowserRouter([
     ]
   }
 ])
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
