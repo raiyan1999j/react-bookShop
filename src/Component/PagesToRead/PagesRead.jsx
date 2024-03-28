@@ -5,7 +5,7 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
 export default function PagesRead() {
   const loadData = useLoaderData();
   const bookData = JSON.parse(loadData);
-  const len = bookData.length;
+  const len = bookData?.length;
 
   const colors = [];
 
@@ -20,10 +20,10 @@ export default function PagesRead() {
 
   const data = [];
 
-  bookData.map((value) => {
+  bookData?.map((value) => {
     let wrap = {
-      name: value.bookName,
-      uv: value.totalPages,
+      name: value?.bookName,
+      uv: value?.totalPages,
     };
 
     data.push(wrap);

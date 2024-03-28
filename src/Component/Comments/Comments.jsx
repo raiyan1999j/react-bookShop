@@ -60,7 +60,7 @@ export default function Comments() {
                       tabIndex={0}
                       className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                     >
-                      {loadData.map((value, id) => {
+                      {loadData?.map((value, id) => {
                         return (
                           <li
                             key={id}
