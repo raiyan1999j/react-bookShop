@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       {
         path:'/home',
         element:<Home/>,
-        loader:()=>fetch('../public/File.json')
+        loader:()=>fetch('../File.json')
       },
       {
         path:'/bookList',
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         path:'/details/:bookId',
         element:<Details/>,
         loader:async({params})=>{
-          let api = await fetch('../public/File.json');
+          let api = await fetch('../File.json');
           let data= await api.json();
           let mainData = data.find((value)=>{return value.bookId == params.bookId});
 

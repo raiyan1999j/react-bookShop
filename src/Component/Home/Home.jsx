@@ -32,7 +32,7 @@ export default function Home() {
 
       <section className="w-[1170px] mx-auto mt-10 small:w-[468px] medium:w-[624px]">
         <div className="w-full grid grid-cols-3 gap-x-6 gap-y-6 small:grid-cols-1 medium:grid-cols-1">
-            {info.map((value,id)=>{
+            {info?.map((value,id)=>{
                 return <BookCard 
                 key={id}
                 track={value.bookId}
