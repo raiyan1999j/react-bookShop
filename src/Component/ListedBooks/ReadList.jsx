@@ -30,7 +30,7 @@ export default function ReadList({info}){
                 </div>
                 <div className="w-[867px] ml-6 small:w-full small:ml-0 small:px-6 medium:w-full medium:ml-0 medium:px-6">
                     <h2 className="capitalize text-[#131313] font-playFair text-2xl font-bold small:text-xl">
-                        {bookName} s
+                        {bookName}
                     </h2>
                     <p className="text-[#131313cc] capitalize text-base font-medium font-workSans my-4">
                         by : {author}
